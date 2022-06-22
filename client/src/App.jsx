@@ -1,8 +1,11 @@
 import { useRef, useEffect, useState } from "react";
 import socketIO from "socket.io-client";
+import Navigation from "./Navigation";
+import Page from "./Page";
 
 const App = () => {
   const [users, setUsers] = useState([]); // [{ mouseX, mouseY, username }, { mouseX, mouseY, username }]
+  const [text, setText] = useState("");
   const socketRef = useRef(null);
 
   useEffect(() => {
@@ -14,10 +17,20 @@ const App = () => {
     socketRef.current = socketIO(socketURL);
 
     socketRef.current.on("onMouseMove", (users) => {
-      console.log(socketRef.current.id);
+      // console.log("socketRef.current.id", socketRef.current.id);
+      // console.log("users", users);
       // console.log(username, mouseX, mouseY);
 
-      setUsers(users);
+      const usersWithoutMe = users.filter(
+        (user) => user.socketId !== socketRef.current.id
+      );
+
+      setUsers(usersWithoutMe);
+    });
+
+    socketRef.current.on("onChangeText", ({ text }) => {
+      console.log(">> socket onChangeText");
+      setText(text);
     });
 
     window.addEventListener("mousemove", (evt) => {
@@ -29,14 +42,25 @@ const App = () => {
     });
   }, []);
 
+  const onChange = (content) => {
+    setText(content);
+    socketRef.current.emit("onChangeText", { text: content });
+  };
+
   // console.log("users", users.length);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Google docs collaboratif</h1>
+    <div className="flex flex-col h-screen bg-base-200">
+      <Navigation />
+      <main className="h-full grow flex justify-center items-center">
+        <div className="h-full py-10 w-1/2">
+          <Page text={text} onChange={onChange} />
+        </div>
+      </main>
       {users.map((user) => {
         return (
           <div
+            key={user.socketId}
             style={{
               position: "absolute",
               left: user.mouseX,

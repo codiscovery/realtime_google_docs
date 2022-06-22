@@ -15,6 +15,7 @@ fastify.register(fastifySocketIO, {
 });
 
 let users = [];
+let content = "";
 
 fastify.get("/", async (request, response) => {
   return { name: "GDocs collaboratif" };
@@ -32,9 +33,24 @@ fastify.ready((err) => {
     // Listen to a user moving its mouse
     socket.on("onMouseMove", ({ mouseX, mouseY }) => {
       // update mouse position
-      users = users.filter((user) => user.username !== socket.id);
-      users.push({ username: socket.id, mouseX, mouseY });
+      users = users.filter((user) => user.socketId !== socket.id);
+      users.push({ username: socket.id, socketId: socket.id, mouseX, mouseY });
       // send newPosition to all users except sender
+      socket.broadcast.emit("onMouseMove", users);
+    });
+
+    // Listen to event onChangeText that receives an object with the key text
+    socket.on("onChangeText", ({ text }) => {
+      fastify.log.warn(`Text changed ${text}`);
+      // update text
+      content = text;
+      // send newText to all users
+      socket.broadcast.emit("onChangeText", { text: content });
+    });
+
+    socket.on("disconnect", () => {
+      fastify.log.info(`a user disconnected ${socket.id}`);
+      users = users.filter((user) => user.socketId !== socket.id);
       socket.broadcast.emit("onMouseMove", users);
     });
   });

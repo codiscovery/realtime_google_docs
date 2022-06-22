@@ -1,9 +1,11 @@
 # Realtime text editor
 
-## Semaine 1
+## Semaine 3
 
 - [ ] Record "One thing I've learned today"
-  - [ ] Maybe Express vs Fastify setup
+- [ ] Optimize socket IO and prevent memory leaks
+- [ ] Look up IntersectionObserver
+- [ ] Start contentEditable for bold
 
 ## TODO
 
@@ -15,8 +17,9 @@
   - [x] with Socket.io
 - [ ] Socket handlers
   - [x] Dispatch mouseX, mouseY and username(=socket.id)
-  - [ ] Fix: on refresh, disconnect previous user
+  - [x] Fix: on refresh, disconnect previous user
   - [ ] Dispatch textarea data
+  - [ ] Detach handler from listener
 
 ### Frontend
 
@@ -26,17 +29,37 @@
   - [x] Fix CORS issue (in fastifySocketIO, add `cors:{ origin: '*' }`)
   - [x] .env for frontend
 - [ ] Mouse detection
+
   - [x] Detect mouse mouvement
   - [x] Send mouse mouvement (mouse position all the time) to server
-  - [ ] Display mouse cursor (of someone)
+  - [x] Display mouse cursor (of someone)
+  - [x] Fix : prevent display my badge
   - [ ] Disconnect/Off socket to avoid memory leaks
+
 - [ ] Design
   - [x] Install Tailwind
   - [x] Install DaisyUI
-  - [ ] Create pretty CSS structure
+  - [x] Create pretty CSS structure
+  - [ ] Add color picker
   - [ ] Finalize design
 - [ ] Text editor
-  - [ ] Add invisible textarea
-  - [ ] Manage keyboard events
-  - [ ] Manage selection
-  - [ ] Send state to server
+  - [x] Send state to server
+  - [x] Textarea
+    - [x] Add invisible textarea
+    - [x] Manage keyboard
+  - [ ] Content editable
+    - [ ] Add invisible textarea
+    - [ ] Manage keyboard events
+    - [ ] Manage selection
+    - [ ] Manage bold
+    - [ ] Manage italic
+    - [ ] Manage underline
+    - [ ] Manage align left
+    - [ ] Manage align center
+    - [ ] Manage align right
+    - [ ] Manage color selection
+
+## Bonus
+
+- [ ] Import images
+- [ ] Font change and size
