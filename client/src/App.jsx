@@ -53,7 +53,7 @@ const App = () => {
     <div className="flex flex-col h-screen bg-base-200">
       <Navigation />
       <main className="h-full grow flex justify-center items-center">
-        <div className="h-full py-10 w-1/2">
+        <div className="h-full py-10 px-3 w-full md:w-3/4 xl:w-1/2">
           <Page text={text} onChange={onChange} />
         </div>
       </main>
@@ -67,7 +67,7 @@ const App = () => {
               top: user.mouseY,
             }}
           >
-            <div className="badge badge-info gap-2">{user.username}</div>
+            <div className="badge bg-secondary gap-2">{user.username}</div>
           </div>
         );
       })}
