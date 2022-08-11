@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="grow flex justify-center">
         <Toolbar />
       </div>
-      <button className="btn btn-primary">Log in</button>
+      {/* <button className="btn btn-primary">Log in</button> */}
       <div className="dropdown dropdown-end">
         <label tabIndex="0" className="btn m-1">
           <AdjustmentsIcon className="h-5" />

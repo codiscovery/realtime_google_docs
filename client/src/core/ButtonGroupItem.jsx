@@ -1,4 +1,9 @@
-const ButtonGroupItem = ({ name = "", icon = null, className = "" }) => {
+const ButtonGroupItem = ({
+  name = "",
+  icon = null,
+  className = "",
+  onClick = () => {},
+}) => {
   let Child = name;
   if (!name) {
     Child = <>{icon}</>;
@@ -8,7 +13,11 @@ const ButtonGroupItem = ({ name = "", icon = null, className = "" }) => {
       " "
     );
   const classes = defaultClasses.concat(className.split(" "));
-  return <button className={classes.join(" ")}>{Child}</button>;
+  return (
+    <button className={classes.join(" ")} onClick={onClick}>
+      {Child}
+    </button>
+  );
 };
 
 export default ButtonGroupItem;

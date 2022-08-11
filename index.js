@@ -18,7 +18,7 @@ let users = [];
 let content = "";
 
 fastify.get("/", async (request, response) => {
-  return { name: "GDocs collaboratif" };
+  return { name: "Codiscovery docs Server" };
 });
 
 fastify.ready((err) => {
@@ -40,12 +40,17 @@ fastify.ready((err) => {
     });
 
     // Listen to event onChangeText that receives an object with the key text
-    socket.on("onChangeText", ({ text }) => {
-      fastify.log.warn(`Text changed ${text}`);
+    socket.on("onChangeText", ({ text, socketId }) => {
+      if (text.length === 0) {
+        return;
+      }
+
+      fastify.log.warn(`onChangeText socket.id: ${socket.id}`);
+      fastify.log.warn(`Text changed text ${text}`);
       // update text
       content = text;
       // send newText to all users
-      socket.broadcast.emit("onChangeText", { text: content });
+      socket.broadcast.emit("onChangeText", { text: content, socketId });
     });
 
     socket.on("disconnect", () => {

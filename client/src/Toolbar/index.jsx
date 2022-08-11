@@ -1,11 +1,13 @@
 import TextStyleButtons from "./TextStyleButtons";
 import TextAlignButtons from "./TextAlignButtons";
+import ColorPicker from "./ColorPicker";
+
 const Toolbar = () => {
   return (
     <div className="flex justify-center gap-4 w-full">
       <TextStyleButtons />
       <TextAlignButtons />
-      <div className="text-align-group[L-C-R]"></div>
+      <ColorPicker />
       <div className="font-group[select-size]"></div>
     </div>
   );
