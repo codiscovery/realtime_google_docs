@@ -61,7 +61,7 @@
   - [x] Basic connection to server
   - [x] Fix CORS issue (in fastifySocketIO, add `cors:{ origin: '*' }`)
   - [x] .env for frontend
-- [ ] Mouse detection
+- [x] Mouse detection
 
   - [x] Detect mouse mouvement
   - [x] Send mouse mouvement (mouse position all the time) to server
@@ -73,8 +73,8 @@
   - [x] Install Tailwind
   - [x] Install DaisyUI
   - [x] Create pretty CSS structure
-  - [ ] Add color picker
-  - [ ] Finalize design
+  - [x] Add color picker
+  - [x] Finalize design
 - [ ] Text editor
   - [x] Send state to server
   - [x] Textarea
@@ -87,10 +87,10 @@
     - [x] Manage bold
     - [x] Manage italic
     - [x] Manage underline
-    - [ ] Manage align left
-    - [ ] Manage align center
-    - [ ] Manage align right
-    - [ ] Manage color selection
+    - [x] Manage align left
+    - [x] Manage align center
+    - [x] Manage align right
+    - [x] Manage color selection
 
 ## Fix for Replay
 
