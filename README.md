@@ -44,11 +44,11 @@
 
 ### Backend
 
-- [ ] Set up Fastify (Express like) server
+- [x] Set up Fastify (Express like) server
   - [x] Run Fastify server
   - [x] .env for server
   - [x] with Socket.io
-- [ ] Socket handlers
+- [x] Socket handlers
   - [x] Dispatch mouseX, mouseY and username(=socket.id)
   - [x] Fix: on refresh, disconnect previous user
   - [x] Dispatch textarea data

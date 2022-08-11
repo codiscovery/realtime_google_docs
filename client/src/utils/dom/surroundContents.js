@@ -26,10 +26,17 @@ const surroundContents = ({ selection, node, contentRef }) => {
   range.setStart(selectedChildNode, rangeStart);
   range.setEnd(selectedChildNode, rangeEnd);
 
-  if (selectedChildNode.parentNode.nodeName === "SPAN") {
+  debugger;
+
+  if (
+    selectedChildNode.parentNode.nodeName === "SPAN" &&
+    node.nodeName === "SPAN"
+  ) {
     const propertyName = !node.style.fontWeight
       ? !node.style.textDecoration
-        ? "fontStyle"
+        ? !node.style.color
+          ? "fontStyle"
+          : "color"
         : "textDecoration"
       : "fontWeight";
     selectedChildNode.parentNode.style[propertyName] = node.style[propertyName];
