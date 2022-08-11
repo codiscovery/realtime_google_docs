@@ -1,5 +1,7 @@
 # Realtime text editor
 
+![Problème temporaire, veuillez recharger la page pour voir l'image](https://codiscovery-readme-header.herokuapp.com/api/actions/generate-image?title=Realtime%20google%20docs&titleColor=%239be15d,%2300e3ae&iconName=file-signature&technologies=React,Tailwind,socket.io&subtitleLine1=Text%20editor%20that%20can%20be%20edited%20by%20multiple%20people%20at%20once&subtitleLine2=Created%20during%20YouTube%20live%20%286x2%20hours%29)
+
 ## Semaine 3
 
 - [ ] Record "One thing I've learned today"
@@ -28,14 +30,13 @@
 
 ## Semaine 6
 
-- [ ] Record "One thing I've learned today"
-- [ ] Create README image
+- [x] Create README image
 - [x] Fix selection with multiple children
   - [CANCELED] Create a function that defines baseNode which will be relative of the selected node (i.e: div2 inside div1, div1 inside contentRef, then baseNode will be div1)
   - [x] Use the relative parent of the selection
 - [x] When clicking on bold, it should be sent to the server and shared across all users
-- [ ] Toggle styles for bold, italic, underline (can be removed after being added)
-- [ ] Split textStyle reducer to
+- [x] Toggle styles for bold, italic, underline (can be removed after being added)
+- [x] Split textStyle reducer to
   - 1. textStyle
   - 3. textAlign
 
